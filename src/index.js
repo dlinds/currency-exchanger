@@ -18,7 +18,7 @@ function populateCurrencies(response) {
     $("#currency-select").val(`USD`);
     $("#currency-to").val(`USD`);
   } else {
-    $("#currency-list-mid").html(`Uh oh! We seem to be having some errors: ${response}`);
+    $("input-row").html(`Uh oh! We seem to be having some errors: ${response}`);
   }
 }
 
@@ -31,16 +31,14 @@ async function getCurrenciesList() {
 function convertCurrency (response) {
   if (response.result) {
     const currencyTo = $("#currency-to").val();
-    //console.log(response.conversion_rates);
-
+    const inputFrom = parseInt($("#input-from").val());
     for (const [key, value] of Object.entries(response.conversion_rates)) {
-      //console.log(`${key}: ${value}`);
       if (key === currencyTo) {
-        $("#convert-to-display").text(value);
+        $("#convert-to-display").text(value * inputFrom);
       }
     }
   } else {
-    $("#currency-list-mid").html(`Uh oh! We seem to be having some errors: ${response}`);
+    $("#input-row").html(`Uh oh! We seem to be having some errors: ${response}`);
   }
 }
 
