@@ -3,7 +3,8 @@
 ### Converts currencies between USD and other global currencies
 
 #### By Daniel Lindsey
-<br>
+<br>  
+
 ## Technologies Used
 
 * _HTML_
