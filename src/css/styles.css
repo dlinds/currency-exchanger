@@ -1,5 +1,9 @@
+.card {
+  background-color:#fafafa;
+  min-height: 400px;
+}
 .to-from-titles {
-  background-color: #abeaff;
+  background-color: #c1f0ff;
 }
 .to-from-titles h1 {
   margin-left: 5%;
@@ -16,4 +20,12 @@
 
 option {
   font-size: 13pt;
+}
+
+.currency-to-from-label {
+  font-size: 15pt;
+}
+
+input {
+  height: calc(1.5em + 1.75rem + 2px) !important;
 }

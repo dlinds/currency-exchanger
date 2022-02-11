@@ -28,7 +28,7 @@ async function getCurrenciesList() {
 
 
 
-function convertCurrency (response) {
+function getElements (response) {
   if (response.result) {
     const currencyTo = $("#currency-to").val();
     const inputFrom = parseFloat($("#input-from").val());
@@ -48,8 +48,9 @@ function convertCurrency (response) {
 
 async function convert(from) {
   if (parseFloat($("#input-from").val()) > 0) {
-    convertCurrency(await CurrencyExchange.convert(from));
+    getElements(await CurrencyExchange.convert(from));
     $("#from-current-designation").html(from);
+    $("#currency-ID").html(from);
   } else {
     $("#negative-error").html("it seems you entered in a negative number. Please enter something greater than 0!");
     $("#input-from").val("");
@@ -61,13 +62,13 @@ async function convert(from) {
 $(document).ready(function() {
   getCurrenciesList();
   
-  $("#currency-select").change(function() {
-    convert($("#currency-select").val());
+  $("#currency-from").change(function() {
+    convert($("#currency-from").val());
   });
   $("#currency-to").change(function() {
-    convert($("#currency-select").val());
+    convert($("#currency-from").val());
   });
   $("#convert").click(function() {
-    convert($("#currency-select").val());
+    convert($("#currency-from").val());
   });
 });
