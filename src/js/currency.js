@@ -3,9 +3,7 @@ export default class CurrencyExchange {
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`);
       if (!response.ok) {
-        const errorResult = JSON.parse(response.json());
-        console.log(errorResult[2]);
-        throw Error (`${response.status}: ${response.errorType}`);
+        throw Error (`${response.status}`);
       }
       return response.json();
     } catch (error) {
@@ -17,7 +15,7 @@ export default class CurrencyExchange {
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${from}`)
       if (!response.ok) {
-        throw Error (`${response.status}: ${response.errorType}`);
+        throw Error (`${response.status}`);
       }
       return response.json();
     } catch (error) {
@@ -25,3 +23,4 @@ export default class CurrencyExchange {
     }
   }
 }
+
