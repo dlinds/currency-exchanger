@@ -11,9 +11,17 @@
           <label for="currency-select">Please select a Currency</label>
           <select id="currency-select" class="form-control"></select>
         </div>
-        <div>
-          <label for="input-from">Enter in how much you'd like to convert</label>
-          <input type="number" id="input-from" class="form-control" placeholder="1">
+        <label for="input-from">Enter in how much you'd like to convert</label>
+        <div class="row align-items-center">
+          <div class="col-4">
+            <input type="number" id="input-from" class="form-control" value=1 placeholder="1">
+          </div>
+          <div class="col-4">
+            <h1 class="heading-1" id="from-current-designation"> USD</h1>
+          </div>
+          <div class="col-4">
+            <button id="convert" class="btn btn-dark">Convert!</button>
+          </div>
         </div>
       </div>
       <div class="col-2" id="currency-list-mid">
@@ -26,7 +34,7 @@
         </div>
         <div>
           <h1 id="convert-to-display" class="heading-1">
-            $1
+            1 USD
           </h1>
         </div>
       </div>
