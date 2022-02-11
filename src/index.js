@@ -15,6 +15,7 @@ function populateCurrencies(response) {
         $("#currency-to").append(`<option value="${currency[0]}">${currency[1]}</option>`);
       }
     });
+    $("#currency-select").append(`<option value="fake">Fake Currency</option>`);
     $("#currency-select").val(`USD`);
     $("#currency-to").val(`USD`);
   } else {
