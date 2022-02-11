@@ -17,7 +17,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new Dotenv(),
     new HtmlWebpackPlugin({
-      title: 'Dlinds Template',
+      title: 'Currency Exchange',
       template: './src/index.html',
       inject: 'body'
     })
