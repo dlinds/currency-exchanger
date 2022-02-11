@@ -5,11 +5,7 @@ import './css/styles.css';
 import CurrencyExchange from './js/currency.js';
 
 function populateCurrencies(response) {
-  if (response.result === "success") {
-    $("#list-of-currencies").append(`<label for="currency-select">Please select a Currency</label>`);
-    $("#list-of-currencies").append(`<select id="currency-select" class="form-control">`);
-    $("#convert-to").append(`<label for="currency-to">Please select a Currency</label>`);
-    $("#convert-to").append(`<select id="currency-to" class="form-control">`);
+  if (response.result) {
     response.supported_codes.forEach(function(currency) {
       if (currency[0] === `USD`) {
         $("#currency-select").prepend(`<option value="${currency[0]}">${currency[1]}</option>`);
@@ -19,10 +15,10 @@ function populateCurrencies(response) {
         $("#currency-to").append(`<option value="${currency[0]}">${currency[1]}</option>`);
       }
     });
-    $("#list-of-currencies").append(`</select>`);
-    $("#convert-to").append(`</select>`);
     $("#currency-select").val(`USD`);
     $("#currency-to").val(`USD`);
+  } else {
+    $("#currency-list-mid").html(`Uh oh! We seem to be having some errors: ${response}`);
   }
 }
 
@@ -30,6 +26,37 @@ async function getCurrenciesList() {
   populateCurrencies(await CurrencyExchange.getGlobalCurrencies());
 }
 
+
+
+function convertCurrency (response) {
+  if (response.result) {
+    const currencyTo = $("#currency-to").val();
+    //console.log(response.conversion_rates);
+
+    for (const [key, value] of Object.entries(response.conversion_rates)) {
+      //console.log(`${key}: ${value}`);
+      if (key === currencyTo) {
+        $("#convert-to-display").text(value);
+      }
+    }
+  } else {
+    $("#currency-list-mid").html(`Uh oh! We seem to be having some errors: ${response}`);
+  }
+}
+
+async function convert(from) {
+  convertCurrency(await CurrencyExchange.convert(from));
+}
+
+
+
 $(document).ready(function() {
   getCurrenciesList();
+  
+  $("#currency-select").change(function() {
+    convert($("#currency-select").val());
+  });
+  $("#currency-to").change(function() {
+    convert($("#currency-select").val());
+  });
 });
