@@ -35,6 +35,7 @@ function getElements (response) {
     for (const [key, value] of Object.entries(response.conversion_rates)) {
       if (key === currencyTo) {
         $("#convert-to-display").text(value * inputFrom + ` ${key}`);
+        $("#converted-desc").html(inputFrom);
       }
     }
   } else {
@@ -51,6 +52,8 @@ async function convert(from) {
     getElements(await CurrencyExchange.convert(from));
     $("#from-current-designation").html(from);
     $("#currency-ID").html(from);
+    $("#converted-desc").append(` ${from}`);
+    
   } else {
     $("#negative-error").html("it seems you entered in a negative number. Please enter something greater than 0!");
     $("#input-from").val("");

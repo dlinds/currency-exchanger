@@ -25,7 +25,27 @@ option {
 .currency-to-from-label {
   font-size: 15pt;
 }
+#from-current-designation {
+  margin-left: 5%;
+}
+#input-from {
+  font-size: 1.5em;
+  max-width: 70%;
+}
 
-input {
-  height: calc(1.5em + 1.75rem + 2px) !important;
+#from-input-container {
+  display: flex;
+}
+
+
+#convert {
+  margin-top: 1em;
+  width: 30%;
+}
+
+#convert:hover {
+  background-color: #c1f0ff;
+  color: black;
+  transition: .25s;
+  box-shadow: rgb(0 0 0 / 25%) 0px 3px 7px;
 }
