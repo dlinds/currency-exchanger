@@ -1,0 +1,19 @@
+.to-from-titles {
+  background-color: #abeaff;
+}
+.to-from-titles h1 {
+  margin-left: 5%;
+  padding-bottom: 4%;
+  padding-top: 4%;
+  margin-bottom: 0;
+}
+
+.currency-select {
+  border-radius: 5px;
+  height: 2em;
+  font-size: 20pt;
+}
+
+option {
+  font-size: 13pt;
+}

@@ -13,7 +13,7 @@ export default class CurrencyExchange {
 
   static async convert(from) {
     try {
-      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${from}`)
+      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${from}`);
       if (!response.ok) {
         throw Error (`${response.status}`);
       }
