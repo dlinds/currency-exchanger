@@ -1,6 +1,6 @@
 .card {
   background-color:#fafafa;
-  min-height: 400px;
+  min-height: 500px;
 }
 .to-from-titles {
   background-color: #c1f0ff;
@@ -48,4 +48,43 @@ option {
   color: black;
   transition: .25s;
   box-shadow: rgb(0 0 0 / 25%) 0px 3px 7px;
+}
+
+#negative-error {
+  margin-top: 5%;
+}
+
+#scroll-container {
+  border: 3px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#scroll-text {
+
+
+  white-space: nowrap;
+
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 55s linear infinite;
+  -webkit-animation: my-animation 55s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
 }

@@ -32,9 +32,9 @@ function getElements (response) {
   if (response.result) {
     const currencyTo = $("#currency-to").val();
     const inputFrom = parseFloat($("#input-from").val());
-    for (const [key, value] of Object.entries(response.conversion_rates)) {
-      if (key === currencyTo) {
-        $("#convert-to-display").text(value * inputFrom + ` ${key}`);
+    for (const [countryCode, value] of Object.entries(response.conversion_rates)) {
+      if (countryCode === currencyTo) {
+        $("#convert-to-display").text(value * inputFrom + ` ${countryCode}`);
         $("#converted-desc").html(inputFrom);
       }
     }
@@ -54,16 +54,34 @@ async function convert(from) {
     $("#currency-ID").html(from);
     $("#converted-desc").append(` ${from}`);
     
+  } else if ($("#input-from").val() === "") {
+    $("#negative-error").slideDown(300);
+    $("#negative-error").html("It seems you did not enter in a number. Please enter a number and try again");
   } else {
-    $("#negative-error").html("it seems you entered in a negative number. Please enter something greater than 0!");
-    $("#input-from").val("");
-  }  
+    $("#negative-error").slideDown(300);
+    $("#negative-error").html("It seems you entered in a negative number. Please enter something greater than 0.");
+  }
+}
+
+function getScrollElements (response) {
+  if (response.result) {
+    let scrollText = "";
+    for (const [countryCode, value] of Object.entries(response.conversion_rates)) {
+      scrollText += `${countryCode}: ${value} `;
+    }
+    $("#scroll-text").html(` ${scrollText} `);
+  }
+}
+
+async function updateScroll() {
+  getScrollElements(await CurrencyExchange.convert("USD"));
 }
 
 
 
 $(document).ready(function() {
   getCurrenciesList();
+  updateScroll();
   
   $("#currency-from").change(function() {
     convert($("#currency-from").val());
@@ -73,5 +91,9 @@ $(document).ready(function() {
   });
   $("#convert").click(function() {
     convert($("#currency-from").val());
+  });
+  $("#input-from").click(function(){
+    $("#negative-error").slideUp(500);
+    $("#input-from").attr("placeholder","");
   });
 });
