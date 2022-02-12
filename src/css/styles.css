@@ -55,36 +55,28 @@ option {
 }
 
 #scroll-container {
-  border: 3px solid black;
+  width:100%;
+  margin-top: 3%;
   border-radius: 5px;
   overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
 }
 
 #scroll-text {
-
-
-  white-space: nowrap;
-
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  
-  -moz-animation: my-animation 55s linear infinite;
-  -webkit-animation: my-animation 55s linear infinite;
-  animation: my-animation 15s linear infinite;
+  font-size: 20pt;
+  margin-top: 15px;
+  animation: animate 200s linear infinite;
+}
+#scroll-text:hover {
+  animation-play-state: paused;
 }
 
-
-@keyframes my-animation {
+@keyframes animate {
   from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
   to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    transform: translateX(-1000%);
   }
 }

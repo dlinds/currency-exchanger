@@ -15,56 +15,54 @@
         </div>
       </div>
     </div>
-    
-      <div class="row" id="input-row">
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-title to-from-titles">
-              <h1 class="display-5">From</h1>
+    <div class="row" id="input-row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-title to-from-titles">
+            <h1 class="display-5">From</h1>
+          </div>
+          <div class="card-body">
+            <div id="list-of-currencies" class="form-group">
+              <label for="currency-from" class="currency-to-from-label">Which currency would you like to convert from?</label>
+              <select id="currency-from" class="form-control currency-select"></select>
             </div>
-            <div class="card-body">
-              <div id="list-of-currencies" class="form-group">
-                <label for="currency-from" class="currency-to-from-label">Which currency would you like to convert from?</label>
-                <select id="currency-from" class="form-control currency-select"></select>
-              </div>
-              <label for="input-from" class="currency-to-from-label">Enter in how much you'd like to convert</label>
-              <div class="row align-items-center">
-                <div class="col-12">
-                  <div id="from-input-container">
-                    <input type="number" id="input-from" class="form-control" value=1 placeholder="1" min="0">
-                    <h2 class="heading-2" id="from-current-designation"> USD</h2>
-                  </div>
-                  <button id="convert" class="btn btn-dark">Convert!</button>
+            <label for="input-from" class="currency-to-from-label">Enter in how much you'd like to convert</label>
+            <div class="row align-items-center">
+              <div class="col-12">
+                <div id="from-input-container">
+                  <input type="number" id="input-from" class="form-control" value=1 placeholder="1" min="0">
+                  <h2 class="heading-2" id="from-current-designation"> USD</h2>
                 </div>
+                <button id="convert" class="btn btn-dark">Convert!</button>
               </div>
-              <div id="negative-error"></div>
             </div>
+            <div id="negative-error"></div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-title to-from-titles">
-              <h1 class="display-5">To</h1>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-title to-from-titles">
+            <h1 class="display-5">To</h1>
+          </div>
+          <div class="card-body">
+            <div id="convert-to" class="form-group">
+              <label for="currency-to" class="currency-to-from-label">Which currency would you like to convert <span id="currency-ID">USD</span> to?</label>
+              <select id="currency-to" class="form-control currency-select"></select>
             </div>
-            <div class="card-body">
-              <div id="convert-to" class="form-group">
-                <label for="currency-to" class="currency-to-from-label">Which currency would you like to convert <span id="currency-ID">USD</span> to?</label>
-                <select id="currency-to" class="form-control currency-select"></select>
-              </div>
-              <div>
-                <label class="currency-to-from-label">&nbsp;</label>
-                <h2 class="heading-2">
-                  <span id="converted-desc">1 USD</span> is equal to</span>
-                  <span id="convert-to-display">1 USD</span>
-                </h2>
-              </div>
+            <div>
+              <label class="currency-to-from-label">&nbsp;</label>
+              <h2 class="heading-2">
+                <span id="converted-desc">1 USD</span> is equal to</span>
+                <span id="convert-to-display">1 USD</span>
+              </h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <div id="scroll-text"><div>
+    <div id="scroll-container">
+      
     </div>
   </div>
 </body>

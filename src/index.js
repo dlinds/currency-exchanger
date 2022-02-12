@@ -67,9 +67,9 @@ function getScrollElements (response) {
   if (response.result) {
     let scrollText = "";
     for (const [countryCode, value] of Object.entries(response.conversion_rates)) {
-      scrollText += `${countryCode}: ${value} `;
+      scrollText += `<strong>${countryCode}</strong>: ${value} &nbsp;&nbsp;&nbsp;`;
     }
-    $("#scroll-text").html(` ${scrollText} `);
+    $("#scroll-container").html(`<h3 class="heading-3">Current USD Rates</h3><div id="scroll-text"><p> ${scrollText} </p><div>`);
   }
 }
 
