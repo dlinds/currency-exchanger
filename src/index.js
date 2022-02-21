@@ -38,14 +38,13 @@ function getElements (response) {
         $("#converted-desc").html(inputFrom);
       }
     }
+  } else if (response === "404") {
+    $("#input-row").html(`Uh oh! We seem to be getting a ${response} error. This is likely because a currency was input that doesn't exist on the currency exchange.`);
   } else {
-    if (response === "404") {
-      $("#input-row").html(`Uh oh! We seem to be getting a ${response} error. This is likely because a currency was input that doesn't exist on the currency exchange.`);
-    } else {
-      $("#input-row").html(`Uh oh! We seem to be getting a ${response} error.`);
-    }
+    $("#input-row").html(`Uh oh! We seem to be getting a ${response} error.`);
   }
 }
+
 
 async function convert(from) {
   if (parseFloat($("#input-from").val()) > 0) {
